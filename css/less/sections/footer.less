@@ -1,0 +1,181 @@
+/*****************************
+*   footer styles started    *
+*****************************/
+
+footer{
+    position: relative;
+    background-color: lighten(black, 3%);
+    color: white;
+    padding-top: 20px;
+
+
+    // line break
+     hr{
+        display: block;
+        border-top: 1px solid white;
+        border-color: darken(white, 90%);
+        
+        margin: 15px auto;
+
+        @media(min-width: @screen-xs-max) {
+            margin: 0px auto;
+        }
+    }
+
+    .section-title{
+        position: relative;
+        margin: 25px 0px;
+        .title-text{
+            font-size: 18px;
+            letter-spacing:2px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .slogan{
+            color: @dark40;
+            letter-spacing: 0.6px;
+
+        }
+    }
+
+    // contact form styes
+
+    .contact-form{
+        position: relative;
+
+        .form{
+            position: relative;
+            margin-bottom: 20px;
+            .form-group{
+
+                input[type='text'], input[type='password'], input[type='email'], textarea{
+                    background-color: lighten(black, 4%);
+                    .border-radius(0px);
+                    border-color: darken(white, 90%);
+
+                    &:focus{
+                        box-shadow: none;
+                        -webkit-box-shadow: none;
+                        -o-box-shadow: none;
+                        -moz-box-shadow: none;
+
+                        border-color: darken(white, 80%);
+                        color: darken(white, 40%);
+                    }
+                }
+
+                .btn-submit{
+                    .border-radius(0px);
+                    background-color: lighten(black, 4%);
+                    border-color: darken(white, 90%);
+
+                    &:hover{
+                         border-color: darken(white, 80%);
+                    }
+                   
+                }
+            }
+        }
+    }
+
+    // find us styles
+
+    .all-addresses{
+        position: relative;
+
+       .fa-ul{
+            li{
+                line-height: 32px;
+                font-weight: 100;
+                letter-spacing: 1px;
+
+
+                i{
+                    font-size: 20px;
+
+                }
+                a{
+                    color: white;
+
+                }
+            }
+       }
+    }
+
+    
+    // social icons styles
+
+    .footer-social-icons{
+        position: relative;
+        margin-top: 15px;
+
+        .be-social{
+            font-size: 16px; 
+            letter-spacing: 2px;
+
+            font-weight: bold;
+        }
+
+        .icons{
+            position: relative;
+          
+            margin-top: 5px;
+            display: table;
+            a{
+                color: white;
+                display: inline-block;
+                margin-right: 5px;
+                text-decoration: none;
+
+                &:hover{
+                    .fa{
+                        background-color: white;
+                        color: lighten(black, 5%);
+                    }
+                }
+            }
+            .fa{
+                position: relative;
+                font-size: 18px;
+                width: 40px;
+                height: 40px;
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                border: 1px solid white;
+                .border-radius(50%);
+                .transition(all 300ms linear);
+            }
+        }
+    }
+    
+    .hot-links{
+        position: relative;
+        margin-bottom: 20px;
+        .links{
+
+            ul{
+                margin: 0px;
+                li{
+                    margin: 0px;
+                    list-style-type: square;
+                    a{
+                        color: darken(white, 40%);
+                    }
+                }
+            }
+        }
+    }
+
+    .sub-footer{
+        background-color: lighten(black, 1%);
+        padding: 10px 0px;
+        font-weight: 100;
+        letter-spacing: 1.5px;
+    }
+}
+
+/*****************************
+*   footer styles ended    *
+*****************************/
+

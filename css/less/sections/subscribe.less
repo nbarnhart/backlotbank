@@ -1,0 +1,84 @@
+/******************************
+*   subscribe styles started  *
+******************************/
+
+#subscribe{
+	position: relative;
+	background: url('../images/subscribe-bg.jpg') no-repeat 50% 0 fixed;
+	background-size: cover; 
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+
+	.subscribe-inner{
+		position: relative;
+		
+		.background-alpha(black, 0.6);
+
+		.container{
+			
+			.subscribe-wrapper{
+				position: relative;
+				height: 350px;
+				width: 100%;
+				
+				&:before{
+					content: '';
+					display: inline-block;
+					height: 100%;
+					vertical-align: middle;
+					margin-right: -0.25em;
+				}
+
+				.wrapper-inner{
+					position: relative;
+					width: 100%;
+					position: relative;	
+					vertical-align: middle;
+					display: inline-block;
+				}
+
+			}
+
+			.section-title{
+				position: relative;
+
+				.title-text{
+					.responsive-font(26px, 36px, 42px);
+					color: white;
+					letter-spacing: 4.6px;
+					padding-bottom: 5px;
+					font-weight: 100;
+				}
+
+
+			}
+			.subscribe{
+					position: relative;
+
+
+					.form-group{
+						.form-control{
+							.border-radius(0px);
+							display: inline-block;
+						}
+
+
+					}
+
+					.submit-btn{
+							@media(max-width: @screen-xs-max) {
+								clear: both;
+								margin-top: 10px;
+								text-align: center !important;
+							}
+						}
+				}
+		}
+	}
+}
+
+/******************************
+*   subscribe styles ended  *
+******************************/
+

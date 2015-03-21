@@ -1,0 +1,109 @@
+/**************************
+*   about styles started  *
+**************************/
+
+#about{
+    position:relative;
+    background-color:@white;
+    padding: 50px 0px 70px;
+
+
+    .heading{
+
+        position: relative;
+        margin: 0px 0px 40px;
+
+        .heading-text{
+            .responsive-font(@headingFontSizeXs, @headingFontSizeSm, @headingFontSizeMd);
+            letter-spacing:2.8px;
+            font-weight: 400;  
+            color: @dark70;
+            // .sifon-font();
+            text-transform: uppercase;
+        }
+        
+        }
+        .slogan{
+            color: #7d7d7d;
+            font-size:16px;
+            letter-spacing:2px;
+            margin-bottom:40px;
+            
+        }
+        .details{
+            position: relative;
+            
+            .icon{
+                position: relative;
+                width: 60px;
+                height: 60px;
+                background-color: @primaryClr;
+                margin: 0px auto;
+                border-radius: 6px;
+                .fa{
+                    color: white;    
+                    line-height: 60px;
+                    font-size: 2.8em;
+                }
+            }
+            .detail-text{
+                    font-weight: normal;
+                    color: darken(white, 60%); 
+                    letter-spacing: 1.2px;  
+                    text-transform: uppercase;
+                    .responsive-font(@detailTextFontSizeXs, @detailTextFontSizeSm, @detailTextFontSizeMd);
+
+                    span{
+                        border: 1px solid #f0f0f0;
+                        border-left: none;
+                        border-right: none;
+                    }
+
+                }
+
+                .description-text{
+                   color: #7d7d7d;
+                    letter-spacing:2px;
+                    font-weight: normal;
+                    margin-top: 20px;
+                }
+        }
+        .launch{
+            h3{
+                margin-top:50px;
+                font-family:sifonnbasic;
+                color:@black;
+                }
+            }
+        .earlySup{
+            margin-top:30px;
+            input{
+            height:64px;
+            
+            font-family:sifonnbasic;
+            letter-spacing:2px;
+            font-size:20px;
+            }
+            button{
+                // height:64px;
+                padding: 10px 30px;
+                font-size:30px;
+                font-family:simplifica;
+                letter-spacing:2px;
+                background-color:@white;
+                color:@primaryClr;
+                
+                    @media(max-width: @screen-xs-max) {
+                        display: inline-block;
+                        margin: 0px auto;
+                        text-align: center;
+                        margin-top: 10px;
+                        
+                    }
+                }
+         }
+}
+
+/**************************
+*   about styles ended  *
+**************************/
