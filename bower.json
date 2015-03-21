@@ -1,0 +1,35 @@
+{
+  "name": "backlotbank",
+  "version": "0.1.0",
+  "homepage": "http://backlotbank.com",
+  "license": "backlotbank",
+  "private": true,
+  "appPath": "./client/assets",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "**/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pdfmake": "*",
+    "components-font-awesome": "3.1.0",
+    "bootstrap.css": "2.1.1",
+    "angular": "1.2.16",
+    "angular-resource": "1.2.16",
+    "angular-mocks": "1.2.16",
+    "angularjs-scope.safeapply": "*",
+    "angular-ui-router": "~0.2.12",
+    "angular-strap": "~2.1.4",
+    "angular-sanitize": "~1.3.4",
+    "angular-motion": "~0.3.4",
+    "textAngular": "~1.2.2",
+    "rangy-official": "~1.3.0-alpha.20140921",
+    "ng-flow": "~2"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "1.2.16"
+  }
+}

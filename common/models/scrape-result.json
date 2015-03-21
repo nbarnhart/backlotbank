@@ -1,0 +1,20 @@
+{
+  "name": "scrapeResult",
+  "plural": "scrapeResults",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "scrape": {
+      "type": "string",
+      "required": true
+    },
+    "result": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

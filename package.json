@@ -1,0 +1,44 @@
+{
+  "name": "backlotbank",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "pretest": "jshint .",
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "compression": "^1.0.3",
+    "errorhandler": "^1.1.1",
+    "loopback": "^2.8.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-datasource-juggler": "^2.7.0",
+    "merge": "^1.2.0",
+    "path": "^0.11.14",
+    "serve-favicon": "^2.0.1"
+  },
+  "optionalDependencies": {
+    "loopback-explorer": "^1.1.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.5.0",
+    "grunt-cache-bust": "^0.4.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html2js": "^0.3.0",
+    "grunt-loopback-sdk-angular": "^1.1.2",
+    "grunt-mocha-cli": "^1.12.0",
+    "grunt-notify": "^0.4.1",
+    "jshint": "^2.6.3",
+    "load-grunt-config": "^0.16.0",
+    "lodash": "^3.5.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "description": "backlotbank"
+}
