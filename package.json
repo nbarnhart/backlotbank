@@ -15,6 +15,7 @@
     "merge": "^1.2.0",
     "path": "^0.11.14",
     "serve-favicon": "^2.0.1"
+    "phantom": "^0.7.2"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.1.0"
