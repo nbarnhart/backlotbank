@@ -1,0 +1,39 @@
+.transition(@param) {
+    transition: @param;   
+    -webkit-transition: @param;
+    -moz-transition: @param;
+    -ms-transition: @param;
+    -o-transition: @param;
+    
+}
+.border-radius(@param) {
+    border-radius: @param;   
+    -webkit-border-radius: @param;
+    -moz-border-radius: @param;
+    -ms-border-radius: @param;
+    -o-border-radius: @param;
+    
+}
+
+.background-alpha(@color, @alpha) {
+    background-color: rgba(red(@color), green(@color), blue(@color), @alpha);
+}
+
+//** Responsive Font Size Mixin.
+
+.responsive-font(@xsSize, @smSize, @mdSize) {
+    font-size: @mdSize;
+
+    @media(max-width: @screen-sm-max) {
+        font-size: @smSize;
+    }
+    @media(max-width: @screen-xs-max) {
+        font-size: @xsSize;
+    }
+}
+
+// font-size: 
+
+.lato-font(){
+    font-family: 'Lato', sans-serif;
+}
