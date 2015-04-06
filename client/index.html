@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/loading-animation.css">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,15 +28,20 @@
      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 
      <!-- magnific popup styles -->
-     <link rel="stylesheet" type="text/css" href="assets/plugins/magnific-popup/magnific-popup.css">
+     <link rel="stylesheet" type="text/css" href="plugins/magnific-popup/magnific-popup.css">
 
 
 
     <!-- custom styles -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" id = "styles">
 
+
+
+    <!-- include jqueyr -->
+    <script type="text/javascript" src="plugins/jquery-2.1.1.min.js"></script>
 </head>
 <body>
+
     <!-- header starts -->
     <header class='background-fixed'>
         <div class="header-inner pattern background-alpha">
@@ -73,6 +78,7 @@
 
                 <!-- paragraph ends -->
 
+
                 <!-- social icons starts
                 <div class="row">
                     <div class="col-md-12">
@@ -108,6 +114,7 @@
         <div class="container">
 
             <div class="row">
+
                 <div class="col-md-12">
                     <div class="heading text-center">
 
@@ -116,17 +123,21 @@
 
                     </div>
                 </div>
+
             </div>
 
 
             <div class="row">
+
                 <div class="col-md-12">
+
                 </div>
+
             </div>
             <div class="row">
                 <div class="details text-center">
 
-                    <div class="col-md-4 col-sm-4"> 
+                    <div class="col-md-4 col-sm-4">
                         <div class="icon">
                             <i class="fa fa-file-excel-o fa-2x"></i>
                         </div>
@@ -140,7 +151,7 @@
                     </div>
 
 
-                    <div class="col-md-4 col-sm-4"> 
+                    <div class="col-md-4 col-sm-4">
                         <div class="icon">
                             <i class="fa fa-check fa-2x"></i>
                         </div>
@@ -152,7 +163,7 @@
                                 value of your residuals and a digital contract. We do the rest!</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4"> 
+                    <div class="col-md-4 col-sm-4">
                         <div class="icon">
                             <i class="fa fa-dollar fa-2x"></i>
                         </div>
@@ -182,25 +193,31 @@
                     <div class="wrapper-inner">
                         <!-- title  -->
                         <div class="row">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-6 text-center">
                                 <div class="section-title">
-                                    <h1 class="title-text">Are You Interested?</h1>
-                                    <p>Enter your email and a representative will get in touch with you.</p>
+                                    <h1 class="title-text">Want to learn more? </h1>
+                                    <p>Enter your email below and a representative will get in touch with you. </p>
                                 </div>
                             </div>
+                            <div class="col-md-6 text-center">
+                                <div class="section-title">
+                                    <h1 class="title-text">Find out how much your residuals are worth!</h1>
+                                    <p>To value your residuals we use historical pay statements. Insert your guild web portal credentials below and our automated program will analyze and value your residuals. We will send you a quote by email. </p>
+                                </div>
+                            </div>
+
                         </div>
                         <!-- form row -->
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
+                            <div class="col-md-6">
                                 <div class="subscribe text-center ">
-                                    <form role="form" class="form" action="#">
+                                    <form name="emailForm" role="form" class="form" action="#">
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="text-right col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-10 col-xs-offset-1 ">
                                                     <label class="sr-only">Email</label>
                                                     <input type="text" class="form-control email" name="email" class="" >
                                                 </div>
-
                                                 <div class="text-left col-md-3 col-sm-3 col-xs-12">
                                                     <div class="submit-btn">
                                                         <button class="submit btn btn-k-primary" type="submit" >
@@ -208,11 +225,33 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                            </div>    
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="subscribe text-center ">
+                                    <form name="residualsForm" role="form" class="form" action="#">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="text-right col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-10 col-xs-offset-1 ">
+                                                    <label class="sr-only">Email</label>
+                                                    <input type="text" class="form-control email" name="email" class="" >
+                                                </div>
+                                                <div class="text-left col-md-3 col-sm-3 col-xs-12">
+                                                    <div class="submit-btn">
+                                                        <button class="submit btn btn-k-primary" type="submit" >
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -245,7 +284,7 @@
                         <p>
                             Backlot Bank was started in reaction to a problem that many in the entertainment industry
                             experience: liquidity. Residuals are an important part of the hollywood ecosystem and make
-                            it possible for directors, writes, and actors to be fairly compensated. However, residuals are
+                            it possible for directors, writers, and actors to be fairly compensated. However, residuals are
                             also extremely unpredictable and not always available when you need them. Our mission is to give talent
                             the option to invest their future residuals in whatever is important to them now.
                         </p>
@@ -262,9 +301,11 @@
 
     <!-- footer starts -->
     <footer>
+
             <!-- container
             <div class="container">
                 <div class="row">
+
                     <div class="col-md-5 col-sm-5">
                             <div class="contact-form">
 
@@ -280,7 +321,7 @@
                                     <div class="form">
                                         <div class="form-group row">
                                             <div class="col-md-6">
-                                                <label class="sr-only" for="exampleInputName">Name</label>    
+                                                <label class="sr-only" for="exampleInputName">Name</label>
                                                 <input type="Text" class="form-control transparent senderName" placeholder="Name">
                                             </div>
                                             <p class="visible-sm visible-xs"></p>
@@ -288,6 +329,7 @@
                                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
                                                 <input type="email" class="form-control transparent senderEmail" placeholder="Email">
                                             </div>
+
                                         </div>
                                         <div class="form-group row" >
                                             <div class="col-md-12">
@@ -301,12 +343,14 @@
                                                 <button class="btn btn-primary btn-submit">Submit</button>
                                             </div>
                                         </div>
+
                                 </form>
 
 
 
                             </div>
                         </div>
+
                     </div>
 
                     <div class="col-md-4 col-sm-4">
@@ -325,6 +369,7 @@
 
                                       <li><i class="fa-li fa fa-envelope"></i><a href="info@backlotbank.com">info@backlotbank.com</a></li>
                                     </ul>
+
 
 
 
@@ -365,7 +410,10 @@
                                         <li><a href="#">Developers</a></li>
                                     </ul>
                                 </div>
+
                         </div>
+
+
                     </div>
                 </div>
 
@@ -381,22 +429,27 @@
                     </div>
                 </div>
             </div>
+
     </footer>
     <!-- footer ends -->
 
 
     <!-- import bootstrap js -->
 
-    <script type="text/javascript" src='assets/bootstrap/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src='bootstrap/js/bootstrap.min.js'></script>
 
     <!-- import jquery plugins -->
-    <script type="text/javascript" src="assets/plugins/jquery.easing.js"></script>
-    <script type="text/javascript" src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-countdown/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-countdown/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery.smooth-scroll.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery.scrollUp.js"></script>
-    <script type="text/javascript" src="assets/plugins/typed.js"></script>
+    <script type="text/javascript" src="plugins/jquery.easing.js"></script>
+    <script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-countdown/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.smooth-scroll.js"></script>
+    <script type="text/javascript" src="plugins/jquery.scrollUp.js"></script>
+    <script type="text/javascript" src="plugins/typed.js"></script>
+
+
+
+
 
     <!-- custom script -->
     <script type="text/javascript" src='js/custom.js'></script>
@@ -423,10 +476,8 @@
                 </div>
                 <div id="circularG_8" class="circularG">
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="assets/plugins/jquery-2.1.1.min.js"></script>
 </body>
 </html

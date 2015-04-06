@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                     //'./bower_components/angular-resource/angular-resource.js:angular-resource',
                     //'./node_modules/ui-router/release/angular-ui-router.js:ui-router',
                     //'./bower_components/angular-ui-router/release/angular-ui-router.js:ui-router',
-                    './node_modules/lodash/dist/lodash.js:lodash'
+                    //'./node_modules/lodash/dist/lodash.js:lodash'
                 ]
             },
             src: ['client/src/app.js'],
