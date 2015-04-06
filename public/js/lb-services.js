@@ -1378,7 +1378,7 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Scrape#getScrape
+         * @name lbServices.Scrape#runScrape
          * @methodOf lbServices.Scrape
          *
          * @description
@@ -1394,7 +1394,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `msg` – `{string=}` - 
+         *  - `data` – `{object=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1408,10 +1408,10 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `greeting` – `{string=}` - 
+         *  - `result` – `{object=}` - 
          */
-        "getScrape": {
-          url: urlBase + "/scrapes/getScrape",
+        "runScrape": {
+          url: urlBase + "/scrapes/runScrape",
           method: "POST"
         },
       }

@@ -632,6 +632,7 @@ header .header-inner .container .scroll-down a:hover {
   -ms-border-radius: 0px;
   -o-border-radius: 0px;
   display: inline-block;
+  margin-bottom: 3px;
 }
 #mission {
   position: relative;
@@ -853,4 +854,48 @@ footer .contact-form .form .form-group textarea:focus {
 }
 .backstretch img {
   position: fixed !important;
+}
+/* custom-select */
+span.custom-select,
+div.custom-select {
+  position: relative;
+}
+span.custom-select:after,
+div.custom-select:after {
+  /*
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: #005DAB;
+    text-align: center;
+    line-height: normal;
+    padding:0 0 2px;
+    position:absolute;
+    pointer-events:none;
+    */
+  content: '';
+  font-family: 'FontAwesome Regular', 'FontAwesome';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: #005DAB;
+  right: 4px;
+  top: -9px;
+  padding: 0 0 2px;
+  /*border-bottom: 1px solid #ddd;*/
+  position: absolute;
+  pointer-events: none;
+  height: 21px;
+}
+span.custom-select:before,
+div.custom-select:before {
+  /*
+    content:'';
+    right:6px; 
+    top:1px;
+    background: #f8f8f8;
+    position: absolute;
+    pointer-events: none;
+    display: block;
+    */
 }

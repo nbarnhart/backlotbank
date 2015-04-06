@@ -45,23 +45,47 @@ module.exports = (function() {
 
     var mod = angular.module('main', [ ]);
 
-    mod.controller('MainCtrl', require('./main-ctrl'));
+    mod.controller('SubscribeCtrl', require('./subscribe-ctrl'));
 
     return mod;
 
 })();
 
-},{"./main-ctrl":3}],3:[function(require,module,exports){
+},{"./subscribe-ctrl":3}],3:[function(require,module,exports){
 'use strict';
 
-module.exports = MainCtrl;
+module.exports = SubscribeCtrl;
 
-MainCtrl.$inject = [
+SubscribeCtrl.$inject = [
     '$scope',
+    'Scrape',
 ];
 
-function MainCtrl($scope) {
-    //MLM: do stuff
+function SubscribeCtrl($scope,Scrape) {
+    $scope.viewState = {
+        subscribeEmail: '',
+        scrapeEmail: '',
+        username: '',
+        password: '',
+        selectedGuild: '',
+        guildOptions: ['DGA','SAG-AFTRA','WGA'],
+    };
+
+    $scope.runScrape = function() {
+        var scrape = new Scrape();
+        scrape.$runScrape({
+            data: {
+                username: $scope.viewState.username,
+                password: $scope.viewState.password,
+                guild: $scope.viewState.selectedGuild,
+                email: $scope.viewState.scrapeEmail,
+            }
+        });
+    };
+    $scope.subscribe = function() {
+        //console.log('MLM: subscribing...',$scope.viewState.subscribeEmail);
+    };
 }
+
 
 },{}]},{},[1]);
