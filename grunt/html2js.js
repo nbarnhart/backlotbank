@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     },
     main: {
       src: ['client/src/**/*.html'],
-      dest: 'public/js/templates.js'
+      dest: 'public/js/markup.js'
     },
   };
 };
