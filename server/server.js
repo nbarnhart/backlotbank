@@ -23,7 +23,10 @@ app.start = function() {
     server.listen(app.get('port'), function() {
         var baseUrl = (sslServer ? 'https://' : 'http://') + app.get('host') + ':' + app.get('port');
         app.emit('started', baseUrl);
-        console.log('Web server listening at: %s', app.get('url'));
+        console.log('LoopBack server listening @ %s%s', baseUrl, '/');
+        //var baseUrl = (sslServer ? 'https://' : 'http://') + app.get('host') + ':' + app.get('port');
+        //app.emit('started', baseUrl);
+        //console.log('Web server listening at: %s', app.get('url'));
     });
     return server;
 };
