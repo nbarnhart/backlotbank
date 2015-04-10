@@ -10,13 +10,14 @@ app.start = function() {
 
     var sslServer = app.get('SSLServer');
 
-    var server = null;
+    var server,httpServer = null;
     if(sslServer) {
         var options = {
             key: sslConfig.privateKey,
             cert: sslConfig.certificate
         };
         server = https.createServer(options, app);
+        httpServer = http.createServer(app);
     } else {
         server = http.createServer(app);
     }
@@ -28,6 +29,18 @@ app.start = function() {
         //app.emit('started', baseUrl);
         //console.log('Web server listening at: %s', app.get('url'));
     });
+    if(httpServer){
+        app.enable('trust proxy');
+        httpServer.listen(80,function() {
+            app.use('*',function(req,res,next){
+                if(req.secure){
+                    next();
+                }else{
+                    res.redirect('https://backlotbank.com');
+                }
+            });
+        });
+    }
     return server;
 };
 //app.start = function() {
