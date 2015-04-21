@@ -1,7 +1,6 @@
 var nodemailer = require('nodemailer');
 var phantom = require('phantom');
 var fs = require('fs');
-var json2csv = require('json2csv');
 
 module.exports = function(Scrape) {
 
