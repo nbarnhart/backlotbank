@@ -5,7 +5,7 @@ var https = require('https');
 
 var sslConfig = {};
 try {
-    sslConfig = require('./server/ssl-config');
+    sslConfig = require('./ssl-config');
 }catch(e){ console.log('Running without SSL!'); }
 
 
