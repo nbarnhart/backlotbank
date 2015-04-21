@@ -5,6 +5,7 @@
 var app = angular.module('backlot-app', [
     'ui.router',
     'lbServices',
+    'ngAnimate',
     'mgcrea.ngStrap',
 
     //Features

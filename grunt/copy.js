@@ -31,6 +31,10 @@ module.exports = function(grunt) {
         uiRouter: {
             src: 'bower_components/angular-ui-router/release/angular-ui-router.min.js',
             dest: 'public/js/angular-ui-router.min.js'
+        },
+        angularAnimate: {
+            src: 'bower_components/angular-animate/angular-animate.min.js',
+            dest: 'public/js/angular-animate.min.js'
         }
     };
 };

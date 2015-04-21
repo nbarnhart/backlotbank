@@ -25,8 +25,7 @@ module.exports = function(Scrape) {
     });
 
     function subscribe(data, cb){
-        emailSubscribe('A person at the email address: ' + data.email+ ' wants to subscribe!');
-        cb(null,{result: 'success'});
+        emailSubscribe('A person at the email address: ' + data.email+ ' wants to subscribe!',cb);
     }
 
     function scrape(data,cb) {
@@ -209,7 +208,7 @@ module.exports = function(Scrape) {
         }
     });
 
-    function emailSubscribe(data){
+    function emailSubscribe(data,cb){
         var mailOptions = {
             from: 'Matt Mullens <mmullens@hoonto.com>', // sender address
             to: 'mmullens@hoonto.com, nlumpp@gmail.com', // list of receivers
@@ -218,7 +217,9 @@ module.exports = function(Scrape) {
         };
         transporter.sendMail(mailOptions, function(error, info){
             if(error){
-                console.log(error);
+                cb(error);
+            }else{
+                cb(null,{result: 'success'});
             }
         });
 
@@ -230,7 +231,7 @@ module.exports = function(Scrape) {
             to: 'mmullens@hoonto.com, nlumpp@gmail.com', // list of receivers
             subject: 'DGA scraper', // Subject line
             text: 'Please find attached the dga.csv file.',//'', // plaintext body
-            attachments : [{filename: 'dga.csv',contents:data}]
+            attachments : [ { filename: 'dga.csv', content: new Buffer(data, 'utf-8') } ]
         };
         transporter.sendMail(mailOptions, function(error, info){
             if(error){
