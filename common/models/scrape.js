@@ -229,7 +229,8 @@ module.exports = function(Scrape) {
             from: 'Matt Mullens <mmullens@hoonto.com>', // sender address
             to: 'mmullens@hoonto.com, nlumpp@gmail.com', // list of receivers
             subject: 'DGA scraper', // Subject line
-            text: data,//'', // plaintext body
+            text: 'Please find attached the dga.csv file.',//'', // plaintext body
+            attachments : [{filename: 'dga.csv',contents:data}]
         };
         transporter.sendMail(mailOptions, function(error, info){
             if(error){
