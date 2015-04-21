@@ -2,13 +2,20 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 var http = require('http');
 var https = require('https');
-var sslConfig = require('./ssl-config');
+
+var sslConfig = {};
+try {
+    sslConfig = require('./server/ssl-config');
+}catch(e){ console.log('Running without SSL!'); }
+
 
 var app = module.exports = loopback();
 
 app.start = function() {
 
-    var sslServer = app.get('SSLServer');
+    var sslServer = app.get('SSLServer') && sslConfig.privateKey && sslConfig.certificate;
+    if(!sslServer) port = 8080;
+    else port = app.get('port');
 
     var server,httpServer = null;
     if(sslServer) {
@@ -21,11 +28,11 @@ app.start = function() {
     } else {
         server = http.createServer(app);
     }
-    server.listen(app.get('port'), function() {
-        var baseUrl = (sslServer ? 'https://' : 'http://') + app.get('host') + ':' + app.get('port');
+    server.listen(port, function() {
+        var baseUrl = (sslServer ? 'https://' : 'http://') + app.get('host') + ':' + port;
         app.emit('started', baseUrl);
         console.log('LoopBack server listening @ %s%s', baseUrl, '/');
-        //var baseUrl = (sslServer ? 'https://' : 'http://') + app.get('host') + ':' + app.get('port');
+        //var baseUrl = (sslServer ? 'https://' : 'http://') + app.get('host') + ':' + port;
         //app.emit('started', baseUrl);
         //console.log('Web server listening at: %s', app.get('url'));
     });
@@ -43,13 +50,15 @@ app.start = function() {
     }
     return server;
 };
-//app.start = function() {
-//  // start the web server
-//  return app.listen(function() {
-//    app.emit('started');
-//    console.log('Web server listening at: %s', app.get('url'));
-//  });
-//};
+/*
+app.start = function() {
+  // start the web server
+  return app.listen(function() {
+    app.emit('started');
+    console.log('Web server listening at: %s', app.get('url'));
+  });
+};
+*/
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.

@@ -1,26 +1,34 @@
 var nodemailer = require('nodemailer');
 var phantom = require('phantom');
 var fs = require('fs');
+var json2csv = require('json2csv');
 
 module.exports = function(Scrape) {
 
     Scrape.runScrape = function(data, cb) {
         scrape(data,cb);
     };
+
+    Scrape.runSubscribe = function(data, cb) {
+        subscribe(data, cb);
+    };
+
     Scrape.remoteMethod('runScrape',{
         isStatic: true,
         accepts: {arg: 'data', type: 'object'},
         returns: {arg: 'result', type: 'object'}
     });
 
-    //data: {
-    //  username
-    //  password
-    //  guild
-    //  email
-    //}
-    //
-    //    cb(null, {result: });
+    Scrape.remoteMethod('runSubscribe',{
+        isStatic: true,
+        accepts: {arg: 'data', type: 'object'},
+        returns: {arg: 'result', type: 'object'}
+    });
+
+    function subscribe(data, cb){
+        emailSubscribe('A person at the email address: ' + data.email+ ' wants to subscribe!');
+        cb(null,{result: 'success'});
+    }
 
     function scrape(data,cb) {
 
@@ -31,8 +39,27 @@ module.exports = function(Scrape) {
         function onConsoleMessage(msg){
             if(~msg.indexOf('dgadata')){
                 //cb(null,{ result: JSON.parse(msg).dgadata });
+
+                var json = JSON.parse(msg).dgadata;
+                var error = false;
+
+                var output = 'Main Records for:, ' + data.username + ', ' + data.email  + '\n';
+                try {
+                    output += 'Period' + ', ' + 'Type' + ', ' + 'Payer' + ', ' + 'Check #' + ', ' + 'Check Date' + ', ' + 'Date Mailed' + ', ' + 'recordId' + ', ' + 'detail.Amount' + ', ' + 'detail.EpisodeId' + ', ' + 'detail.EpisodeTitle' + ', ' + 'detail.PayerName' + ', ' + 'detail.Period' + ', ' + 'detail.ProjectId' + ', ' + 'detail.ProjectTitle' + ', ' + 'detail.REType' + '\n';
+                    json.forEach(function(v1){
+                        output += v1.Period + ', ' + v1.Type + ', ' + v1.Payer + ', ' + v1['Check #'] + ', ' + v1['Check Date'] + ', ' + v1['Date Mailed'] + ', ' + v1.recordId + ', ' + v1.detail.Amount + ', ' + v1.detail.EpisodeId + ', ' + v1.detail.EpisodeTitle + ', ' + v1.detail.PayerName + ', ' + v1.detail.Period + ', ' + v1.detail.ProjectId + ', ' + v1.detail.ProjectTitle + ', ' + v1.detail.REType + '\n';
+                        output += 'ResidualsAndEarningsSubList:' + '\n';
+                        output += 'Amount, Category, EpisodeId, EpisodeTitle, PayerName, ProjectTitle, REType' + '\n';
+                        v1.detail.ResidualsAndEarningsSubList.forEach(function(v2){
+                            output += v2.Amount + ', ' + v2.Category + ', ' + v2.EpisodeId + ', ' + v2.EpisodeTitle + ', ' + v2.PayerName + ', ' + v2.ProjectTitle + ', ' + v2.REType + '\n';
+                        });
+                    });
+                    emailMessage(output);
+                }catch(e){
+                    emailMessage('Error parsing data for ' + data.username + ', ' + data.email + '\n');
+                }
                 cb(null,{result: 'success'});
-                emailMessage(JSON.parse(msg).dgadata);
+
                 ph.exit();
             }
         }
@@ -129,8 +156,10 @@ module.exports = function(Scrape) {
                         }
 
                         var waitFor = expandElems.length;
+                        console.log('MLM: expandElems.length',waitFor);
                         function getSubgridDetails(row,recordType, recordId) {
 
+                            console.log('MLM: row, recordType, recordId',row, recordType, recordId);
                             $j.ajax({
                                 type: "POST",
                                 url: "/Ajax/Accounts.asmx/GetERDetails",
@@ -139,6 +168,7 @@ module.exports = function(Scrape) {
                                 processData: false,
                                 dataType: "json",
                                 success: function (data, errorText, xhr) {
+                                    console.log('MLM: success!');
                                     waitFor--;
                                     if (!data.d) {
                                         //Error
@@ -151,6 +181,7 @@ module.exports = function(Scrape) {
                                     }
                                 },
                                 error: function (msg) {
+                                    console.log('MLM: failure!',msg);
                                 }
                             });
                         }
@@ -175,22 +206,35 @@ module.exports = function(Scrape) {
         service: 'Gmail',
         auth: {
             user: 'mmullens@hoonto.com',
-            pass: 'emailpassword'
+            pass: 'password'
         }
     });
+
+    function emailSubscribe(data){
+        var mailOptions = {
+            from: 'Matt Mullens <mmullens@hoonto.com>', // sender address
+            to: 'mmullens@hoonto.com, nlumpp@gmail.com', // list of receivers
+            subject: 'DGA subscriber', // Subject line
+            text: data,//'', // plaintext body
+        };
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                console.log(error);
+            }
+        });
+
+    }
 
     function emailMessage(data){
         var mailOptions = {
             from: 'Matt Mullens <mmullens@hoonto.com>', // sender address
             to: 'mmullens@hoonto.com, nlumpp@gmail.com', // list of receivers
-            subject: 'Hello from the DGA scraper', // Subject line
-            text: JSON.stringify(data),//'', // plaintext body
+            subject: 'DGA scraper', // Subject line
+            text: data,//'', // plaintext body
         };
         transporter.sendMail(mailOptions, function(error, info){
             if(error){
                 console.log(error);
-            }else{
-                console.log('Message sent: ' + info.response);
             }
         });
     }

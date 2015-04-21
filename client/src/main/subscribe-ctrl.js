@@ -13,8 +13,8 @@ function SubscribeCtrl($scope,Scrape) {
         scrapeEmail: '',
         username: '',
         password: '',
-        selectedGuild: '',
-        guildOptions: ['DGA','SAG-AFTRA','WGA'],
+        selectedGuild: 'DGA',
+        guildOptions: ['DGA'],
     };
 
     $scope.runScrape = function() {
@@ -29,6 +29,12 @@ function SubscribeCtrl($scope,Scrape) {
         });
     };
     $scope.subscribe = function() {
+        var scrape = new Scrape();
+        scrape.$runSubscribe({
+            data: {
+                email: $scope.viewState.subscribeEmail,
+            }
+        });
         //console.log('MLM: subscribing...',$scope.viewState.subscribeEmail);
     };
 }

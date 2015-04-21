@@ -9,6 +9,7 @@
   "dependencies": {
     "compression": "^1.0.3",
     "errorhandler": "^1.1.1",
+    "json2csv": "^2.2.1",
     "lodash": "^3.6.0",
     "loopback": "^2.8.0",
     "loopback-boot": "^2.6.5",
