@@ -87,7 +87,7 @@ function SubscribeCtrl($scope,Scrape,$modal) {
                 email: $scope.viewState.scrapeEmail,
             }
         }).then(function(result){
-            scrapeModal.$promise.then(errorModal.show);
+            scrapeModal.$promise.then(scrapeModal.show);
         },function(err){
             errorModal.$promise.then(errorModal.show);
         });
@@ -99,7 +99,7 @@ function SubscribeCtrl($scope,Scrape,$modal) {
                 email: $scope.viewState.subscribeEmail,
             }
         }).then(function(result){
-            subscribeModal.$promise.then(errorModal.show);
+            subscribeModal.$promise.then(subscribeModal.show);
         },function(err){
             errorModal.$promise.then(errorModal.show);
         });
